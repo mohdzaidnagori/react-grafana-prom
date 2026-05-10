@@ -1,0 +1,73 @@
+{
+  "name": "react-grafana-prom",
+  "version": "0.1.2",
+  "description": "Lightweight Grafana-inspired React charts for Prometheus and Thanos time-series data.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": [
+    "./dist/styles.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "scripts": {
+    "clean": "node -e \"fs.rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && npm run build:css && tsc -p tsconfig.build.json",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "typecheck": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "keywords": [
+    "react",
+    "nextjs",
+    "grafana",
+    "prometheus",
+    "thanos",
+    "recharts",
+    "monitoring",
+    "charts"
+  ],
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "recharts": ">=2.12.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.6.3",
+    "storybook": "^10.3.6",
+    "@storybook/react-vite": "^10.3.6",
+    "@chromatic-com/storybook": "^5.1.2",
+    "@storybook/addon-vitest": "^10.3.6",
+    "@storybook/addon-a11y": "^10.3.6",
+    "@storybook/addon-docs": "^10.3.6",
+    "@storybook/addon-onboarding": "^10.3.6",
+    "vitest": "^4.1.5",
+    "playwright": "^1.59.1",
+    "@vitest/browser-playwright": "^4.1.5",
+    "@vitest/coverage-v8": "^4.1.5"
+  }
+}
